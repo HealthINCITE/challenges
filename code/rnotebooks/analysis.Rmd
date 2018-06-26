@@ -13,11 +13,7 @@ Our subpopulation analysis will examine individuals with specific conditions.  T
 ```{r}
 #This loads the tidyverse library, which we will be using later.
 library(tidyverse)
-
-#Sets the working directory to our main base directory.
-setwd("~/data/INCITE/Health_INCITE/synthea/ny_ma_10K")
-
-conditions_ny <-read_csv("./ny/csv/conditions.csv")
+conditions_ny <-read_csv("~/data/ny/conditions.csv")
 ```
 
 ### Understanding Dataframe Structure
@@ -74,8 +70,8 @@ conditions_ny_diabetes <- conditions_ny %>%
 The organization of the data provided is similar to what you would find in most datasets.
 
 ```{r}
-patients_ny <-read_csv("./ny/csv/patients.csv")
-encounters_ny <-read_csv("./ny/csv/encounters.csv")
+patients_ny <-read_csv("~/data/ny/patients.csv")
+encounters_ny <-read_csv("~/data/ny/encounters.csv")
 
 c_e_p_ny<-conditions_ny_diabetes %>% inner_join(encounters_ny, by = c("ENCOUNTER" = "ID")) %>%
 inner_join(patients_ny, by = c("PATIENT.x" = "ID"))
